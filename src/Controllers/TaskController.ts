@@ -28,8 +28,11 @@ export default class TaskController {
   }
 
   @Patch('/tasks/:id')
-  async update(@Body() dto: SaveTaskDto) {
-    return (await this.useCaseFactory.create(SaveTaskUseCase)).handle({ ...dto, id: Number(id) });
+  async update(@Param('id') id: string, @Body() dto: SaveTaskDto) {
+    return (await this.useCaseFactory.create(SaveTaskUseCase)).handle({
+      ...dto,
+      id: Number(id),
+    });
   }
 
   @Delete('/tasks/:id')
