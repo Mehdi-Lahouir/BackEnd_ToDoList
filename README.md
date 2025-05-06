@@ -28,6 +28,8 @@ cp .env.sample .env        # adjust if needed
 yarn prisma migrate deploy # create table Task
 yarn start:dev             # API on http://localhost:3000
 
+---
+
 **3. REST Endpoints**
 
 | Verb   | Route        | Body example             | Action |
@@ -36,6 +38,8 @@ yarn start:dev             # API on http://localhost:3000
 | POST   | `/tasks`     | `{ "name": "Buy milk" }` | create |
 | PATCH  | `/tasks/:id` | `{ "name": "Buy tea" }`  | update |
 | DELETE | `/tasks/:id` | –                        | delete |
+
+---
 
 **4.Folder Layout**
 
@@ -73,6 +77,8 @@ backend
 ├── tsconfig.json
 └── yarn.lock
 
+---
+
 **5. Key Design Choices**
 
 Use-case layer isolates business logic (easy tests).
@@ -82,6 +88,8 @@ Minimal DTO + manual validation (no class-validator overhead).
 Prisma query logging during dev (PrismaService log level query).
 
 Single migration 20240709213409_init (table Task).
+
+---
 
 **6. Useful Scripts**
 
